@@ -1,0 +1,27 @@
+# ---- Font Configuration ----
+# Font family (Ghostty automatically resolves Nerd Font variations)
+font-family = "Iosevka Nerd Font Mono"
+# Comfortable Iosevka size with extra vertical breathing room
+font-size = 10
+adjust-cell-height = 15%
+
+# ---- Window Transparency & Blur ----
+# Background opacity (0.0 is completely transparent, 1.0 is completely opaque)
+background-opacity = 0.99
+# Enable background blur (works exceptionally well on Linux Mint's Cinnamon/XFCE desktop)
+background-blur = true
+
+# ---- Extra Visual Polish ----
+window-theme = system
+
+
+# Removes the system window decorations for a minimal, sleek look
+window-decoration = true
+# Adds padding inside the terminal text area so text doesn't touch the edges
+window-padding-x = 12
+window-padding-y = 12
+
+theme = Cursor Dark
+
+cursor-style = block
+cursor-style-blink = false
