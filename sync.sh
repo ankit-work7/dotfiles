@@ -20,4 +20,20 @@ for file in "${files[@]}"; do
     printf 'Synced %s\n' "$file"
   fi
 done
+# Keep Emacs configuration without downloaded packages or runtime state.
+if [[ -d "$HOME/.config/emacs" ]]; then
+  mkdir -p -- "$DOTFILES_DIR/.config/emacs"
+  rsync -a \
+    --exclude='/elpa/' --exclude='/eln-cache/' \
+    --exclude='/auto-save-list/' --exclude='/var/' \
+    --exclude='/tree-sitter/' --exclude='/url/' \
+    --exclude='/history' --exclude='/recentf' --exclude='/places' \
+    --exclude='/bookmarks' --exclude='/.org-id-locations' \
+    --exclude='/org-roam.db*' --exclude='/projectile-*.eld' \
+    --exclude='/session.*' --exclude='/.git/' \
+    --exclude='*.elc' --exclude='*.eln' --exclude='*~' \
+    --exclude='*.bak*' --exclude='*.before-*' --exclude='#*#' --exclude='.#*' \
+    "$HOME/.config/emacs/" "$DOTFILES_DIR/.config/emacs/"
+  printf 'Synced %s\n' '.config/emacs (configuration only)'
+fi
 printf 'Dotfiles synced to %s\n' "$DOTFILES_DIR"
